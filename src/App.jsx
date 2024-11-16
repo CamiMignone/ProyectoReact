@@ -1,4 +1,5 @@
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import ItemListContainer from './components/ItemListContainer'
 import NavbarComponent from './components/NavbarComponent'
 import { useState} from "react"
