@@ -1,34 +1,36 @@
-import React, { useState, useEffect, useLayoutEffect } from "react"
-import ItemCount from "./ItemCount"
+import React, { useState, useEffect } from "react"
 import { getProducts } from "../mock/data"
-import Itemlist from "./ItemList"
+import ItemList from "./ItemList"
+import { useParams } from "react-router-dom"
 
-const ItemListContainer = ({ greeting }) => {
+
+const ItemListContainer = ({ greeting, texto }) => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(false)
-    const onAdd = (cantidad) => {
-        alert("Agregaste al carrito " + cantidad + " productos")
-    }
+    const { category } = useParams()
+
 
     useEffect(() => {
         setLoading(true)
         getProducts()
-            .then((res) => setProducts(res))
-            .catch((error) => console.log())
+            .then((res) => {
+                if (category) {
+                    setProducts(res.filter((prod) => prod.category === category))
+                } else {
+                    setProducts(res)
+                }
+            })
+            .catch((error) => console.log(error))
             .finally(() => setLoading(false))
-    }, [])
-    console.log(products)
+    }, [category])
+
     return (
         <div>
-            <h1>{greeting}</h1>
-            {loading ? <p>Cargando...</p> : <Itemlist products={products} /> }
 
+            <h1 className="text-center">{greeting}<span style={{ textTransform: "capitalize" }}>{category}</span></h1>
+            {loading ? <p>Cargando...</p> : <ItemList products={products} />}
 
-            <ItemCount stock={12} onAdd={onAdd} />
         </div>
-
-
     )
 }
-
 export default ItemListContainer

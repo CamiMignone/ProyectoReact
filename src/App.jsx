@@ -1,17 +1,25 @@
-import './App.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
-import ItemListContainer from './components/ItemListContainer'
-import NavbarComponent from './components/NavbarComponent'
-import { useState} from "react"
+import "./App.css"
+import "bootstrap/dist/css/bootstrap.min.css";
+//Esto es si estoy usando bootstrap comun
+import "bootstrap/dist/js/bootstrap.bundle.js"
+import ItemListContainer from "./components/ItemListContainer"
+import NavbarReactBootstrap from "./components/NavbarReactBootstrap";
+import ItemDetailContainer from "./components/ItemDetailContainer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Error from "./components/Error";
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <div>
-      <NavbarComponent/>
-      <ItemListContainer greeting='Bienvenidos al shop' />
-    </div>
+    <BrowserRouter>
+      <NavbarReactBootstrap />
+      <Routes>
+        <Route path="/" element={<ItemListContainer greeting="Bienvenidos" />} />
+        <Route path="/products/:category" element={<ItemListContainer greeting="Categoria: " />} />
+        <Route path="/item/:id" element={<ItemDetailContainer />} />
+        <Route path="*" element={<Error />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 
