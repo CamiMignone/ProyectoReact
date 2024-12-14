@@ -1,5 +1,5 @@
 import React from "react"
-import { PacmanLoader } from "react-spinners"
+import { SyncLoader } from "react-spinners"
 
 const Loader = () => {
     return (
@@ -10,7 +10,7 @@ const Loader = () => {
             justifyContent: "center",
             alignItems: "center"
         }}>
-            <PacmanLoader color="yellow" size={90} />
+            <SyncLoader color="green" size={15} margin={5} />
         </div>
     )
 }

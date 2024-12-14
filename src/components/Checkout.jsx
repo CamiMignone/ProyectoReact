@@ -9,14 +9,14 @@ const Checkout = () => {
     const [validate, setValidate] = useState("")
     const [orderId, setOrderId] = useState("")
     const { cart, cartTotal, clear } = useContext(CartContext)
+    
     const userData = (e) => {
-        setUser(
-            {
-                ...user,
-                [e.target.name]: e.target.value
-            }
-        )
+        setUser({
+            ...user,
+            [e.target.name]: e.target.value
+        })
     }
+    
     const finalizarCompra = (e) => {
         e.preventDefault()
         if (!user.name || !user.lastname || !user.email || !user.address) {
@@ -40,24 +40,56 @@ const Checkout = () => {
     }
 
     return (
-        <div>
-            {orderId !== "" ? <div>
-                <h4>Generaste bien tu orden!</h4>
-                <h5>El id es: {orderId}</h5>
-                <Link to="/" className="btn btn-success">Volver a home</Link>
-            </div>
-                :
-                <div>
-                    <h4>Completa con tus datos</h4>
-                    <form className="d-flex flex-column align-items-center" onSubmit={finalizarCompra}>
-                        <input type="text" name="name" placeholder="Ingrese su nombre" onChange={userData} />
-                        <input type="text" name="lastname" placeholder="Ingrese su apellido" onChange={userData} />
-                        <input type="text" name="address" placeholder="Ingrese su dirección" onChange={userData} />
-                        <input type="email" name="email" placeholder="Ingrese su correo" onChange={userData} />
-                        <input type="email" name="second-email" placeholder="Repita su correo" onChange={(e) => setValidate(e.target.value)} />
-                        <button className="btn btn-success" type="submit">Enviar</button>
+        <div className="checkout-container">
+            {orderId !== "" ? (
+                <div className="order-confirmation">
+                    <h4 className="confirmation-title">¡Generaste bien tu orden!</h4>
+                    <h5 className="confirmation-text">El ID de tu compra es: <strong>{orderId}</strong></h5>
+                    <Link to="/" className="btn btn-success go-home-btn">Volver a home</Link>
+                </div>
+            ) : (
+                <div className="checkout-form-container">
+                    <h4 className="checkout-title">Completa con tus datos</h4>
+                    <form className="checkout-form" onSubmit={finalizarCompra}>
+                        <input 
+                            type="text" 
+                            name="name" 
+                            placeholder="Ingrese su nombre" 
+                            onChange={userData} 
+                            className="checkout-input" 
+                        />
+                        <input 
+                            type="text" 
+                            name="lastname" 
+                            placeholder="Ingrese su apellido" 
+                            onChange={userData} 
+                            className="checkout-input" 
+                        />
+                        <input 
+                            type="text" 
+                            name="address" 
+                            placeholder="Ingrese su dirección" 
+                            onChange={userData} 
+                            className="checkout-input" 
+                        />
+                        <input 
+                            type="email" 
+                            name="email" 
+                            placeholder="Ingrese su correo" 
+                            onChange={userData} 
+                            className="checkout-input" 
+                        />
+                        <input 
+                            type="email" 
+                            name="second-email" 
+                            placeholder="Repita su correo" 
+                            onChange={(e) => setValidate(e.target.value)} 
+                            className="checkout-input" 
+                        />
+                        <button className="btn btn-success checkout-btn" type="submit">Enviar</button>
                     </form>
-                </div>}
+                </div>
+            )}
         </div>
     )
 }

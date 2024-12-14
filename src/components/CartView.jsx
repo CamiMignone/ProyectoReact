@@ -6,11 +6,11 @@ import CartList from "./CartList"
 const CartView = () => {
     const { cart } = useCart()
     return (
-        <div>
+        <div className="cart-view-container">
             {!cart.length
                 ? <EmpyCart />
                 : <div>
-                    <h2>Tu carrito</h2>
+                    <h2 className="cart-title">Tu carrito</h2>
                     <CartList />
                 </div>
             }

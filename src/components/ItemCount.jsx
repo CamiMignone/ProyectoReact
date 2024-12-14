@@ -15,20 +15,26 @@ const ItemCount = ({ stock, onAdd }) => {
         }
     }
 
-
     const onAddHandler = () => {
         onAdd(count)
     }
+
     return (
         <div>
-            <div>
-                <button className="btn btn-danger" onClick={restar} >-</button>
+            <div className="item-count-buttons">
+                <button className="item-count-button item-count-button-decrease" onClick={restar}>-</button>
                 <span className="btn">{count}</span>
-                <button className="btn btn-success" onClick={sumar}>+</button>
+                <button className="item-count-button item-count-button-increase" onClick={sumar}>+</button>
             </div>
-            <button className="btn btn-primary" onClick={onAddHandler} disabled={stock === 0 || count === 0}>Comprar</button>
+            <button 
+                className="item-count-button item-count-button-reset" 
+                onClick={onAddHandler} 
+                disabled={stock === 0 || count === 0}>
+                Comprar
+            </button>
         </div>
     )
 }
 
 export default ItemCount
+

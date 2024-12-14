@@ -9,6 +9,7 @@ const ItemListContainer = ({ greeting, texto }) => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(false)
     const { category } = useParams()
+
     useEffect(() => {
         setLoading(true)
         const productsCollection = category
@@ -28,11 +29,12 @@ const ItemListContainer = ({ greeting, texto }) => {
             .finally(() => setLoading(false))
     }, [category])
 
-
     return (
-        <div>
+        <div className="itemlist-container">
+            <h1 className="greeting-title">{greeting}</h1>
+            {category && <h2 className="category-title">{category}</h2>}
+            <p className="category-description">{texto}</p>
 
-            <h1 className="text-center">{greeting}<span style={{ textTransform: "capitalize", color: "violet" }}>{category}</span></h1>
             {loading ? <Loader /> : <ItemList products={products} />}
         </div>
     )
