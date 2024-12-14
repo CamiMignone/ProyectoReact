@@ -24,7 +24,7 @@ const ItemDetailContainer = () => {
           setInvalidItem(true)
         }
       })
-      .catch((error) => console.log(error))
+      .catch((error) => (error))
       .finally(() => setLoading(false))
   }, [])
 

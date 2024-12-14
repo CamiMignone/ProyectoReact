@@ -1,8 +1,56 @@
-# React + Vite
+# Coder App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
 
-Currently, two official plugins are available:
+Coder App es una aplicación que simula un supermercado online, donde los usuarios pueden realizar compras de manera sencilla y rápida desde la comodidad de su hogar. La aplicación cuenta con una interfaz intuitiva y un sistema dinámico que permite gestionar productos, agregar al carrito y realizar pedidos.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Instalación
+
+1. **Clonar el repositorio**:
+   ```bash
+   git clone <URL_DEL_REPOSITORIO>
+2. **Instalar dependencias:
+Ejecuta el siguiente comando para instalar todas las dependencias y generar la carpeta node_modules:**:
+npm install
+
+3. **Levantar el servidor local:
+Utiliza el siguiente comando para iniciar el servidor local:**:
+npm run dev
+
+El proyecto estará disponible en tu navegador en http://localhost:3000 o el puerto configurado.
+
+## Librerías utilizadas
+
+A continuación, se listan las librerías utilizadas en este proyecto, junto con su propósito y enlace de documentación:
+
+SweetAlert: Utilizada para mostrar alertas personalizadas y con un diseño moderno.
+
+Bootstrap: Framework CSS utilizado para el diseño y la responsividad de la aplicación.
+
+Firebase: Servicio backend utilizado para la autenticación de usuarios y la base de datos en tiempo real.
+
+React Router DOM: Utilizado para gestionar la navegación y las rutas dentro de la aplicación.
+
+React Spinner: Librería para mostrar indicadores de carga mientras se procesan datos.
+
+React Icons: Conjunto de íconos utilizado para mejorar la apariencia de la interfaz de usuario.
+
+## Tecnologías utilizadas
+
+El proyecto fue desarrollado utilizando las siguientes tecnologías:
+
+React: Biblioteca para construir interfaces de usuario.
+
+JavaScript: Lenguaje principal para la lógica de la aplicación.
+
+HTML: Lenguaje de marcado para estructurar el contenido.
+
+CSS: Lenguaje de estilos para diseñar la interfaz.
+
+## Autores
+
+El proyecto fue desarrollado por:
+
+Camila Mignone
+
+¡Gracias por interesarte en Coder App! Si tienes alguna duda o sugerencia, no dudes en contactarnos o contribuir al proyecto.

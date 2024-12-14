@@ -24,7 +24,7 @@ const ItemListContainer = ({ greeting, texto }) => {
                 })
                 setProducts(list)
             })
-            .catch((error) => console.log(error))
+            .catch((error) => (error))
             .finally(() => setLoading(false))
     }, [category])
 

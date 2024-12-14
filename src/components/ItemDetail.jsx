@@ -1,24 +1,16 @@
-import React, { useContext, useState } from "react"
+import React, { useState } from "react"
 import ItemCount from "./ItemCount"
 import { Link } from "react-router-dom"
-import { CartContext, useCart } from "../context/CartContext"
-import Swal from "sweetalert2"
+import { useCart } from "../context/CartContext"
 
 const ItemDetail = ({ producto }) => {
   const [compra, setCompra] = useState(false)
-  const { addToCart, itemQuantity } = useCart()
+  const { addToCart } = useCart()
   const onAdd = (cantidad) => {
     setCompra(true)
-    Swal.fire({
-      position: "top-end",
-      icon: "success",
-      title: `Agregaste ${producto.name} al carrito`,
-      showConfirmButton: false,
-      timer: 1500
-    });
     addToCart(producto, cantidad)
   }
-  const stockActualizado = producto.stock - itemQuantity(producto.id)
+
   return (
     <div>
       <h1>Detalle del producto:{producto.name}</h1>
@@ -30,7 +22,7 @@ const ItemDetail = ({ producto }) => {
           <Link className="btn btn-dark" to="/">Seguir comprando</Link>
           <Link className="btn btn-dark" to="/cart">Ir al carrito</Link>
         </div>
-        : <ItemCount stock={stockActualizado} onAdd={onAdd} />
+        : <ItemCount stock={producto.stock} onAdd={onAdd} />
       }
     </div>
   )

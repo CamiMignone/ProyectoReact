@@ -1,7 +1,6 @@
 import { HiOutlineShoppingCart } from "react-icons/hi2";
 import { Badge } from "react-bootstrap";
-import { useContext } from "react";
-import { CartContext, useCart } from "../context/CartContext";
+import { useCart } from "../context/CartContext";
 const CartWidgetReactIcons = () => {
     const { cartQuantity } = useCart()
 

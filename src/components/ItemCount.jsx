@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import { useCart } from "../context/CartContext"
 
 const ItemCount = ({ stock, onAdd }) => {
     const [count, setCount] = useState(1)
@@ -16,7 +15,6 @@ const ItemCount = ({ stock, onAdd }) => {
         }
     }
 
-    console.log("SoyItemCount")
 
     const onAddHandler = () => {
         onAdd(count)

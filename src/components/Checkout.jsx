@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react"
 import { CartContext } from "../context/CartContext"
-import { addDoc, collection, doc, getDoc, serverTimestamp, updateDoc } from "firebase/firestore"
+import { addDoc, collection, serverTimestamp } from "firebase/firestore"
 import { db } from "../services/firebase"
 import { Link } from "react-router-dom"
 
@@ -36,7 +36,6 @@ const Checkout = () => {
                     setOrderId(res.id)
                     clear()
                 })
-                .catch((error) => console.log(error))
         }
     }
 
