@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
-import ItemList from './ItemList'
-import { useParams } from 'react-router-dom'
-import Loader from './Loader'
-import { collection, getDocs, query, where } from 'firebase/firestore'
-import { db } from '../services/firebase'
+import React, { useState, useEffect } from "react"
+import ItemList from "./ItemList"
+import { useParams } from "react-router-dom"
+import Loader from "./Loader"
+import { collection, getDocs, query, where } from "firebase/firestore"
+import { db } from "../services/firebase"
 
 const ItemListContainer = ({ greeting, texto }) => {
     const [products, setProducts] = useState([])
@@ -32,7 +32,7 @@ const ItemListContainer = ({ greeting, texto }) => {
     return (
         <div>
 
-            <h1 className="text-center">{greeting}<span style={{ textTransform: 'capitalize', color: 'violet' }}>{category}</span></h1>
+            <h1 className="text-center">{greeting}<span style={{ textTransform: "capitalize", color: "violet" }}>{category}</span></h1>
             {loading ? <Loader /> : <ItemList products={products} />}
         </div>
     )

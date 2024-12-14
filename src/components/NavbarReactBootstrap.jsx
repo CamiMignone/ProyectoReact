@@ -4,8 +4,10 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import CartWidgetReactIcons from "./CartWidgetReactIcons";
 import { NavLink } from "react-router-dom";
+import { useCart } from "../context/CartContext";
 function NavbarReactBootstrap() {
-    console.log("Navbar")
+
+    const { cartQuantity } = useCart()
     return (
         <Navbar expand="lg" className="bg-body-tertiary">
             <Container>
@@ -30,7 +32,12 @@ function NavbarReactBootstrap() {
                             <NavDropdown.Item as={NavLink} to="/products/bebidas">Bebidas</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
-                    <CartWidgetReactIcons />
+                    {/* {cartQuantity() > 0 && <NavLink to="/cart" style={{textDecoration:"none"}}>
+                <CartWidgetReactIcons/>
+            </NavLink>} */}
+                    <NavLink to="/cart" style={{ textDecoration: "none" }}>
+                        <CartWidgetReactIcons />
+                    </NavLink>
                 </Navbar.Collapse>
             </Container>
         </Navbar>

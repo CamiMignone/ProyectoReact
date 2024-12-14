@@ -53,7 +53,7 @@ const productos= [
     { "id": 50, "name": "CocaCola Lata", "stock": 500, "price": 0.7, "description": "Lata de CocaCola.", "img": "/public/cocacola.jpg", "category": "bebidas" }
   ]
 
-export const getProducts = () =>{
+  export const getProducts = () =>{
   
     let error = false
     return new Promise((resolve, reject)=>{
@@ -68,16 +68,32 @@ export const getProducts = () =>{
     })
 }
 
+//Opcion sensilla
+// export const getOneProduct = ()=>{
+//     let error=false
+//     return new Promise((resolve, reject)=>{
+//         setTimeout(()=>{
+//             if(!error){
+//                 resolve(productos[1])
+//             }else{
+//                 reject('No hay data')
+//             }
+//         },3000)
+//     })
+// }
+
+//Opcion dinamica
+
 export const getOneProduct = (id)=>{
     let error=false
     return new Promise((resolve, reject)=>{
         setTimeout(()=>{
             if(!error){
-                let product = productos.find((item)=> item.id === Number (id))
+                let product = productos.find((item)=> item.id === id)
                 resolve(product)
             }else{
                 reject('No hay data')
             }
-        },2000)
+        },3000)
     })
 }
