@@ -1,6 +1,5 @@
 import "./App.css"
 import "bootstrap/dist/css/bootstrap.min.css";
-//Esto es si estoy usando bootstrap comun
 import "bootstrap/dist/js/bootstrap.bundle.js"
 import ItemListContainer from "./components/ItemListContainer"
 import NavbarReactBootstrap from "./components/NavbarReactBootstrap";
@@ -10,8 +9,6 @@ import Error from "./components/Error";
 import { CartProvider } from "./context/CartContext";
 import CartView from "./components/CartView";
 import Checkout from "./components/Checkout";
-import CheckoutUseForm from "./components/CheckoutUseForm";
-
 
 
 function App() {
@@ -24,7 +21,7 @@ function App() {
         <Route path="/products/:category" element={<ItemListContainer greeting="Bienvenidos a la categoria: "/>}/>
         <Route path="/item/:id" element={<ItemDetailContainer/>}/>
         <Route path="/cart" element={<CartView/>}/>
-        <Route path="/checkout" element={<CheckoutUseForm/>}/>
+        <Route path="/checkout" element={<Checkout/>}/>
         <Route path="*" element={<Error/>}/>
       </Routes>
     </BrowserRouter>
