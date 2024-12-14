@@ -6,7 +6,7 @@ const Item = ({ product }) => {
         <div className="card" style={{ width: "18rem", marginTop: 10 }}>
             <img 
                 src={product.img} 
-                className="card-img-top productImage"  // Añadimos la clase personalizada
+                className="card-img-top productImage" 
                 alt={product.name} 
             />
             <div className="card-body">
