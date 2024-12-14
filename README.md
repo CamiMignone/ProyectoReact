@@ -18,6 +18,11 @@ npm run dev
 
 El proyecto estará disponible en tu navegador en http://localhost:3000 o el puerto configurado.
 
+## Version HOST
+
+Si quieres ver el proyecto Online, ingresa en el siguiente link proyecto-react-gamma.vercel.app
+
+
 ## Librerías utilizadas
 
 A continuación, se listan las librerías utilizadas en este proyecto, junto con su propósito y enlace de documentación:
