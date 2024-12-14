@@ -1,6 +1,6 @@
 
 
-const productos= [
+const productos = [
     { "id": 1, "name": "Durazno", "stock": 150, "price": 0.5, "description": "Duraznos frescos de cultivo local.", "img": "/public/durazno.jpg", "category": "frutaverdura" },
     { "id": 2, "name": "Plátano", "stock": 200, "price": 0.3, "description": "Plátanos maduros y dulces.", "img": "/public/banana.jpg", "category": "frutaverdura" },
     { "id": 3, "name": "Leche Entera 1L", "stock": 180, "price": 1.2, "description": "Leche pasteurizada de vaca.", "img": "/public/lechevegetal.jpg", "category": "lacteos" },
@@ -51,49 +51,33 @@ const productos= [
     { "id": 48, "name": "Pizza Congelada", "stock": 120, "price": 3.5, "description": "Pizza lista para hornear.", "img": "/public/pizza.jpg", "category": "congelados" },
     { "id": 49, "name": "Yogurt fits", "stock": 150, "price": 0.9, "description": "Yogur sabor fresa.", "img": "/public/yogurt.jpg", "category": "lacteos" },
     { "id": 50, "name": "CocaCola Lata", "stock": 500, "price": 0.7, "description": "Lata de CocaCola.", "img": "/public/cocacola.jpg", "category": "bebidas" }
-  ]
+]
 
-  export const getProducts = () =>{
-  
+export const getProducts = () => {
+
     let error = false
-    return new Promise((resolve, reject)=>{
-        setTimeout(()=>{
-            if(error){
-                reject('Hubo un error, intente mas tarde')
-            }else{
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (error) {
+                reject("Hubo un error, intente mas tarde")
+            } else {
                 resolve(productos)
-            
+
             }
-        },3000)
+        }, 3000)
     })
 }
 
-//Opcion sensilla
-// export const getOneProduct = ()=>{
-//     let error=false
-//     return new Promise((resolve, reject)=>{
-//         setTimeout(()=>{
-//             if(!error){
-//                 resolve(productos[1])
-//             }else{
-//                 reject('No hay data')
-//             }
-//         },3000)
-//     })
-// }
-
-//Opcion dinamica
-
-export const getOneProduct = (id)=>{
-    let error=false
-    return new Promise((resolve, reject)=>{
-        setTimeout(()=>{
-            if(!error){
-                let product = productos.find((item)=> item.id === id)
+export const getOneProduct = (id) => {
+    let error = false
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            if (!error) {
+                let product = productos.find((item) => item.id === id)
                 resolve(product)
-            }else{
-                reject('No hay data')
+            } else {
+                reject("No hay data")
             }
-        },3000)
+        }, 3000)
     })
 }

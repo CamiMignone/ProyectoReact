@@ -3,7 +3,6 @@ export const CartContext = createContext();
 const prodFromLocalStorage = JSON.parse(localStorage.getItem("carrito")) || []
 export const CartProvider = ({ children }) => {
     const [cart, setCart] = useState(prodFromLocalStorage)
-    //LocalStorage - Carrito persistente // OPCIONAL
     useEffect(() => {
         localStorage.setItem("carrito", JSON.stringify(cart))
     }, [cart])
@@ -21,7 +20,6 @@ export const CartProvider = ({ children }) => {
                 })
             )
         } else {
-            //sumar un item nuevo al carrito
             setCart([...cart, { ...item, cantidad: quantity }])
         }
     }
@@ -47,14 +45,11 @@ export const CartProvider = ({ children }) => {
     }
 
 
-    //OPCIONAL, DESCONTAR STOCK LOCAL
     const itemQuantity = (id) => {
         const itemInCart = cart.find((prod) => prod.id === id)
         if (itemInCart) {
-            //devuelve la cantidad de ese item en el carrito
             return itemInCart.cantidad
         } else {
-            //No existe en el carrito, devuelve 0
             return 0
         }
     }

@@ -9,7 +9,6 @@ const CheckoutUseForm = () => {
     const { cart, cartTotal, clear } = useContext(CartContext)
 
     const onSubmit = (dataDelForm) => {
-        //si pasa todas las validaciones
         let order = {
             buyer: {
                 name: dataDelForm.nombre,
@@ -20,10 +19,8 @@ const CheckoutUseForm = () => {
             total: cartTotal(),
             date: serverTimestamp()
         }
-        // traer la colecction
 
         const ventas = collection(db, "orders")
-        //agregamos el doc
         addDoc(ventas, order)
             .then((res) => {
                 setOrderId(res.id)

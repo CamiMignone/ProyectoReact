@@ -32,9 +32,6 @@ function NavbarReactBootstrap() {
                             <NavDropdown.Item as={NavLink} to="/products/bebidas">Bebidas</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
-                    {/* {cartQuantity() > 0 && <NavLink to="/cart" style={{textDecoration:"none"}}>
-                <CartWidgetReactIcons/>
-            </NavLink>} */}
                     <NavLink to="/cart" style={{ textDecoration: "none" }}>
                         <CartWidgetReactIcons />
                     </NavLink>

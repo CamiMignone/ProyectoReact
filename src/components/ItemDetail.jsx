@@ -6,7 +6,6 @@ import Swal from "sweetalert2"
 
 const ItemDetail = ({ producto }) => {
   const [compra, setCompra] = useState(false)
-  // const {addToCart, cart}= useContext(CartContext)
   const { addToCart, itemQuantity } = useCart()
   const onAdd = (cantidad) => {
     setCompra(true)
@@ -17,14 +16,6 @@ const ItemDetail = ({ producto }) => {
       showConfirmButton: false,
       timer: 1500
     });
-    // let cartItem = {
-    //   name: producto.name,
-    //   img: producto.img,
-    //   price: producto.price,
-    //   stock:producto.stock,
-    //   id:producto.id
-    // }
-    //   addToCart(cartItem, cantidad)
     addToCart(producto, cantidad)
   }
   const stockActualizado = producto.stock - itemQuantity(producto.id)
